@@ -9,14 +9,14 @@ import {
 } from '../Store/actions';
 import CurrencyConverter from '../Components/CurrencyConverter';
 
-const mapStateToProps = ({ ui, data }) => ({
-	amount: ui.amount,
-	baseAmount: data.baseAmount,
-	conversionResult: Number(data.result).toFixed(6),
-	baseCurrency: ui.baseCurrency,
-	destinationCurrency: ui.destinationCurrency,
-	baseCurrencies: data.currencies.filter((currency) => currency.code !== ui.destinationCurrency),
-	destinationCurrencies: data.currencies.filter((currency) => currency.code !== ui.baseCurrency)
+const mapStateToProps = ({ userInterface, conversionData }) => ({
+	amount: userInterface.amount,
+	baseAmount: conversionData.baseAmount,
+	conversionResult: Number(conversionData.result).toFixed(6),
+	baseCurrency: userInterface.baseCurrency,
+	destinationCurrency: userInterface.destinationCurrency,
+	baseCurrencies: conversionData.currencies.filter((currency) => currency.code !== userInterface.destinationCurrency),
+	destinationCurrencies: conversionData.currencies.filter((currency) => currency.code !== userInterface.baseCurrency)
 });
 
 const mapDispatchToProps = dispatch => ({

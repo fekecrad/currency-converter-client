@@ -1,4 +1,4 @@
-const data = (state = {}, action) => {
+const ConversionDataReducer = (state = {}, action) => {
 	switch (action.type) {
 		case '@@data/REQUEST_CONVERT':
 			return { ...state, loading: true }
@@ -27,6 +27,6 @@ const data = (state = {}, action) => {
 		default:
 			return state;
 	}
-}
+};
 
-export default data;
+export default ConversionDataReducer;

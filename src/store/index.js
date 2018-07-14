@@ -4,12 +4,12 @@ import thunkMiddleware from 'redux-thunk'
 import rootReducer from './reducers';
 
 const initialState = {
-	ui: {
+	userInterface: {
 		amount: '1',
 		baseCurrency: 'CZK',
 		destinationCurrency: 'USD'
 	},
-	data: {
+	conversionData: {
 		result: null,
 		baseAmount: null,
 		loading: false,
@@ -20,7 +20,7 @@ const initialState = {
 		totalAmount: 0,
 		totalRequests: 0
 	}
-}
+};
 
 const middlewares = [thunkMiddleware];
 if (process.env.NODE_ENV === 'development') {
@@ -31,4 +31,4 @@ export default createStore(
 	rootReducer,
 	initialState,
 	applyMiddleware(...middlewares)
-)
+);

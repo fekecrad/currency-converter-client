@@ -16,7 +16,7 @@ injectGlobal`
 	}
 `;
 
-store.dispatch(fetchMetadata())
+store.dispatch(fetchMetadata());
 
 ReactDOM.render(
 	<Provider store={store}>

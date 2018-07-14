@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 
 import Metadata from '../Components/Metadata';
 
-const mapStateToProps = ({ data }) => ({
-	mostPopularDestinationCurrency: data.mostPopularDestinationCurrency,
-	totalAmount: Number(data.totalAmount).toFixed(2),
-	totalRequests: data.totalRequests
+const mapStateToProps = ({ conversionData }) => ({
+	mostPopularDestinationCurrency: conversionData.mostPopularDestinationCurrency,
+	totalAmount: Number(conversionData.totalAmount).toFixed(2),
+	totalRequests: conversionData.totalRequests
 });
 
 export default connect(

@@ -34,7 +34,7 @@ export const fetchMetadata = () => {
 			return dispatch(throwError(error));
 		}
 	}
-}
+};
 
 export const convert = () => {
 	return async (dispatch, getState) => {
@@ -42,13 +42,13 @@ export const convert = () => {
 		try {
 			const state = getState();
 			const convertData = await convert_(
-				state.ui.amount,
-				state.ui.baseCurrency,
-				state.ui.destinationCurrency
+				state.userInterface.amount,
+				state.userInterface.baseCurrency,
+				state.userInterface.destinationCurrency
 			);
-			return dispatch(recieveConvert(convertData, state.ui.amount));
+			return dispatch(recieveConvert(convertData, state.userInterface.amount));
 		} catch (error) {
 			return dispatch(throwError(error));
 		}
 	}
-}
+};

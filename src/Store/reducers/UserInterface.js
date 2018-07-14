@@ -1,4 +1,4 @@
-const ui = (state = {}, action) => {
+const UserInterfaceReducer = (state = {}, action) => {
 	switch (action.type) {
 		case '@@ui/CHECK_VALID_AMOUNT':
 			if (state.amount === '' || state.amount === '0') {
@@ -20,6 +20,6 @@ const ui = (state = {}, action) => {
 		default:
 			return state;
 	}
-}
+};
 
-export default ui;
+export default UserInterfaceReducer;
