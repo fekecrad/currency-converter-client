@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Paper } from '@material-ui/core';
 import styled from 'styled-components';
 
-import CurrencyConverterContainer from '../containers/CurrencyConverterContainer';
+import CurrencyConverterContainer from '../Containers/CurrencyConverterContainer';
 
 class App extends Component {
 	render() {

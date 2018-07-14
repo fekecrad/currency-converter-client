@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { injectGlobal } from 'styled-components';
 
-import App from "./components/App";
+import App from "./Components/App";
 import registerServiceWorker from "./registerServiceWorker";
-import store from "./store";
+import store from "./Store";
 import { fetchMetadata } from './Store/actions';
 
 injectGlobal`

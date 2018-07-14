@@ -6,8 +6,8 @@ import {
 	setAmount,
 	setBaseCurrency,
 	setDestinationCurrency,
-} from '../store/actions';
-import CurrencyConverter from '../components/CurrencyConverter';
+} from '../Store/actions';
+import CurrencyConverter from '../Components/CurrencyConverter';
 
 const mapStateToProps = ({ ui }) => ({
 	amount: ui.amount,

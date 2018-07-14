@@ -20,7 +20,7 @@ const ui = (state = {}, action) => {
 		case '@@ui/SET_DESTINATION_CURRENCY':
 			return { ...state, destinationCurrency: action.currency };
 		default:
-			return state
+			return state;
 	}
 }
 
