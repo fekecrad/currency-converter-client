@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, NativeSelect, TextField } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 import { ConversionResultPaper, StyledMaterialUIForm } from './styles/CurrencyConverter';
 
@@ -62,12 +63,33 @@ const CurrencyConverter = ({
 			>Convert</Button>
 		</StyledMaterialUIForm>
 		{
-			conversionResult &&
+			baseAmount &&
 				<ConversionResultPaper>
-					{baseAmount} {baseCurrency} = <b>{Number((conversionResult).toFixed(6))}</b> {destinationCurrency}
+					{baseAmount} {baseCurrency} = <b>{conversionResult}</b> {destinationCurrency}
 				</ConversionResultPaper>
 		}
 	</div>
 );
+
+CurrencyConverter.propTypes = {
+	amount: PropTypes.string,
+	baseAmount: PropTypes.string,
+	baseCurrency: PropTypes.string,
+	baseCurrencies: PropTypes.arrayOf(PropTypes.shape({
+		code: PropTypes.string,
+		name: PropTypes.string
+	})),
+	destinationCurrency: PropTypes.string,
+	destinationCurrencies: PropTypes.arrayOf(PropTypes.shape({
+		code: PropTypes.string,
+		name: PropTypes.string
+	})),
+	checkEmptyAmount: PropTypes.func,
+	convert: PropTypes.func,
+	conversionResult: PropTypes.string,
+	setAmount: PropTypes.func,
+	setBaseCurrency: PropTypes.func,
+	setDestinationCurrency: PropTypes.func
+};
 
 export default CurrencyConverter;

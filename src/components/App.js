@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ChasingDots } from 'styled-spinkit';
 
 import CurrencyConverter from '../Containers/CurrencyConverterContainer';
@@ -21,6 +22,12 @@ export const App = ({ loading, error, errorObject }) => (
 	</AppPaper>
 );
 
-
+App.propTypes = {
+	loading: PropTypes.bool,
+	error: PropTypes.bool,
+	errorObject: PropTypes.shape({
+		message: PropTypes.string
+	})
+};
 
 export default App;

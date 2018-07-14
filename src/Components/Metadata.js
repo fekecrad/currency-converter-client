@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Table, TableBody, TableCell, TableRow } from '@material-ui/core';
 
@@ -21,7 +22,7 @@ const Metadata = ({
 			</TableRow>
 			<TableRow>
 				<TableCell>Total amount converted</TableCell>
-				<TableCell numeric>{Number((totalAmount).toFixed(2))} USD</TableCell>
+				<TableCell numeric>{totalAmount} USD</TableCell>
 			</TableRow>
 			<TableRow>
 				<TableCell>Total number of conversion requests made</TableCell>
@@ -30,5 +31,11 @@ const Metadata = ({
 		</TableBody>
 	</Table>
 );
+
+Metadata.propTypes = {
+	mostPopularDestinationCurrency: PropTypes.arrayOf(PropTypes.string),
+	totalAmount: PropTypes.string,
+	totalRequests: PropTypes.number
+};
 
 export default Metadata;

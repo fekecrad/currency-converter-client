@@ -4,7 +4,7 @@ import Metadata from '../Components/Metadata';
 
 const mapStateToProps = ({ data }) => ({
 	mostPopularDestinationCurrency: data.mostPopularDestinationCurrency,
-	totalAmount: data.totalAmount,
+	totalAmount: Number(data.totalAmount).toFixed(2),
 	totalRequests: data.totalRequests
 });
 
