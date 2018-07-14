@@ -1,4 +1,4 @@
-const ui = (state = [], action) => {
+const ui = (state = {}, action) => {
 	switch (action.type) {
 		case '@@ui/CONVERT':
 			return { ...state, loading: true }

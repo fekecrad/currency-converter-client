@@ -6,6 +6,7 @@ import { injectGlobal } from 'styled-components';
 import App from "./components/App";
 import registerServiceWorker from "./registerServiceWorker";
 import store from "./store";
+import { fetchMetadata } from './Store/actions';
 
 injectGlobal`
 	body {
@@ -14,6 +15,8 @@ injectGlobal`
 		padding: 0;
 	}
 `;
+
+store.dispatch(fetchMetadata())
 
 ReactDOM.render(
 	<Provider store={store}>
