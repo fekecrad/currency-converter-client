@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+import { getConfig } from '../config';
+
 const axiosInstance = axios.create({
-	baseURL: 'https://nxhw21uon9.execute-api.eu-west-1.amazonaws.com/prod/'
+	baseURL: getConfig().currencyConverterApiUrl
 });
 
 export const convert = async (value, from, to) => {
