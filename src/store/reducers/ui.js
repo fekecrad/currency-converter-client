@@ -1,9 +1,7 @@
 const ui = (state = {}, action) => {
 	switch (action.type) {
-		case '@@ui/CONVERT':
-			return { ...state, loading: true }
 		case '@@ui/CHECK_VALID_AMOUNT':
-			if (state.amount === '') {
+			if (state.amount === '' || state.amount === '0') {
 				return {...state, amount: '1' };
 			}
 			if (state.amount.charAt(0) === '-') {

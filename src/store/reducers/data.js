@@ -1,5 +1,14 @@
 const data = (state = {}, action) => {
 	switch (action.type) {
+		case '@@data/REQUEST_CONVERT':
+			return { ...state, loading: true }
+		case '@@data/RECIEVE_CONVERT':
+			return {
+				...state,
+				...action.convertData,
+				baseAmount: action.baseAmount,
+				loading: false
+			}
 		case '@@data/REQUEST_METADATA':
 			return { ...state, loading: true }
 		case '@@data/RECIEVE_METADATA':
@@ -8,7 +17,7 @@ const data = (state = {}, action) => {
 				...action.metadata,
 				loading: false
 			}
-		case '@data/THROW_ERROR':
+		case '@@data/THROW_ERROR':
 			return {
 				...state,
 				error: true,

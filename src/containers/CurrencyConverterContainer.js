@@ -11,6 +11,8 @@ import CurrencyConverter from '../Components/CurrencyConverter';
 
 const mapStateToProps = ({ ui, data }) => ({
 	amount: ui.amount,
+	baseAmount: data.baseAmount,
+	conversionResult: data.result,
 	baseCurrency: ui.baseCurrency,
 	destinationCurrency: ui.destinationCurrency,
 	baseCurrencies: data.currencies.filter((currency) => currency.code !== ui.destinationCurrency),
