@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { injectGlobal } from 'styled-components';
 
-import App from "./Components/App";
+import App from "./Containers/AppContainer";
 import registerServiceWorker from "./registerServiceWorker";
 import store from "./Store";
 import { fetchMetadata } from './Store/actions';
