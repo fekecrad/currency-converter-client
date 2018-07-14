@@ -10,7 +10,9 @@ import styled from 'styled-components';
 const CurrencyConverter = ({
 	amount,
 	baseCurrency,
+	baseCurrencies,
 	destinationCurrency,
+	destinationCurrencies,
 	checkEmptyAmount,
 	convert,
 	setAmount,
@@ -30,15 +32,27 @@ const CurrencyConverter = ({
 			value={baseCurrency}
 			onChange={setBaseCurrency}
 		>
-			<option value={"CZK"}>CZK</option>
-			<option value={"USD"}>USD</option>
+			{
+				baseCurrencies.map((currency) => (
+					<option
+						key={'base-' + currency.code}
+						value={currency.code}>{currency.code}
+					</option>
+				))
+			}
 		</NativeSelect>
 		<NativeSelect
 			value={destinationCurrency}
 			onChange={setDestinationCurrency}
 		>
-			<option value={"CZK"}>CZK</option>
-			<option value={"USD"}>USD</option>
+			{
+				destinationCurrencies.map((currency) => (
+					<option
+						key={'destination-' + currency.code}
+						value={currency.code}>{currency.code}
+					</option>
+				))
+			}
 		</NativeSelect>
 		<Button
 			color="primary"

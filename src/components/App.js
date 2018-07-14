@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { Paper } from '@material-ui/core';
 import styled from 'styled-components';
 
-import CurrencyConverterContainer from '../Containers/CurrencyConverterContainer';
+import CurrencyConverter from '../Containers/CurrencyConverterContainer';
+import Metadata from '../Containers/MetadataContainer';
 
 class App extends Component {
 	render() {
 		return (
 			<AppPaper>
 				<CurrencyConverter />
+				<MetadataPaper>
+					<Metadata />
+				</MetadataPaper>
 			</AppPaper>
 		);
 	}
@@ -21,6 +25,10 @@ const AppPaper = styled(Paper)`
 		padding: 20px;
 	}
 `;
+
+const MetadataPaper = styled(Paper)`
+	&& {
+		margin-top: 20px;
 		padding: 20px;
 	}
 `;
