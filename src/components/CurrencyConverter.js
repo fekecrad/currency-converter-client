@@ -1,12 +1,7 @@
 import React from 'react';
-import MaterialUIForm from 'material-ui-form';
-import {
-	Button,
-	NativeSelect,
-	Paper,
-	TextField
-} from '@material-ui/core';
-import styled from 'styled-components';
+import { Button, NativeSelect, TextField } from '@material-ui/core';
+
+import { ConversionResultPaper, StyledMaterialUIForm } from './styles/CurrencyConverter';
 
 const CurrencyConverter = ({
 	amount,
@@ -40,7 +35,8 @@ const CurrencyConverter = ({
 					baseCurrencies.map((currency) => (
 						<option
 							key={'base-' + currency.code}
-							value={currency.code}>{currency.code}
+							value={currency.code}
+						>{currency.code}
 						</option>
 					))
 				}
@@ -53,7 +49,8 @@ const CurrencyConverter = ({
 					destinationCurrencies.map((currency) => (
 						<option
 							key={'destination-' + currency.code}
-							value={currency.code}>{currency.code}
+							value={currency.code}
+						>{currency.code}
 						</option>
 					))
 				}
@@ -72,26 +69,5 @@ const CurrencyConverter = ({
 		}
 	</div>
 );
-
-const StyledMaterialUIForm = styled(MaterialUIForm)`
-	&& {
-		align-items: baseline;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-
-		> :not(:last-child) {
-			margin-right: 10px;
-		}
-	}
-`;
-
-const ConversionResultPaper = styled(Paper)`
-	&& {
-		margin-top: 20px;
-		padding: 20px;
-		text-align: center;
-	}
-`;
 
 export default CurrencyConverter;
