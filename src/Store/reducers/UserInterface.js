@@ -17,6 +17,12 @@ const UserInterfaceReducer = (state = {}, action) => {
 			return { ...state, baseCurrency: action.currency };
 		case '@@ui/SET_DESTINATION_CURRENCY':
 			return { ...state, destinationCurrency: action.currency };
+		case '@@ui/SWAP_CURRENCIES':
+			return {
+				...state,
+				destinationCurrency: state.baseCurrency,
+				baseCurrency: state.destinationCurrency
+			};
 		default:
 			return state;
 	}

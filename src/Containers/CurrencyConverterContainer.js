@@ -6,6 +6,7 @@ import {
 	setAmount,
 	setBaseCurrency,
 	setDestinationCurrency,
+	swapCurrencies,
 } from '../Store/actions';
 import CurrencyConverter from '../Components/CurrencyConverter';
 
@@ -24,7 +25,8 @@ const mapDispatchToProps = dispatch => ({
 	checkEmptyAmount: () => dispatch(checkEmptyAmount()),
 	setAmount: event => dispatch(setAmount(event.target.value)),
 	setBaseCurrency: event => dispatch(setBaseCurrency(event.target.value)),
-	setDestinationCurrency: event => dispatch(setDestinationCurrency(event.target.value))
+	setDestinationCurrency: event => dispatch(setDestinationCurrency(event.target.value)),
+	swapCurrencies: () => dispatch(swapCurrencies())
 });
 
 export default connect(

@@ -1,8 +1,14 @@
 import React from 'react';
-import { Button, NativeSelect, TextField } from '@material-ui/core';
+import { Button, IconButton, MenuItem, TextField, Select  } from '@material-ui/core';
+import SwapHorizIcon from '@material-ui/icons/SwapHoriz';
 import PropTypes from 'prop-types';
+import 'currency-flags/dist/currency-flags.css';
 
-import { ConversionResultPaper, StyledMaterialUIForm } from './styles/CurrencyConverter';
+import {
+	CurrencyMenuItemWrapper,
+	ConversionResultPaper,
+	StyledMaterialUIForm 
+} from './styles/CurrencyConverter';
 
 const CurrencyConverter = ({
 	amount,
@@ -16,7 +22,8 @@ const CurrencyConverter = ({
 	conversionResult,
 	setAmount,
 	setBaseCurrency,
-	setDestinationCurrency
+	setDestinationCurrency,
+	swapCurrencies
 }) => (
 	<div>
 		<StyledMaterialUIForm onSubmit={convert}>
@@ -28,34 +35,35 @@ const CurrencyConverter = ({
 				onChange={setAmount}
 				onBlur={checkEmptyAmount}
 			/>
-			<NativeSelect
+			<Select
 				value={baseCurrency}
 				onChange={setBaseCurrency}
+				renderValue={value => `${value}`}
 			>
 				{
 					baseCurrencies.map((currency) => (
-						<option
-							key={'base-' + currency.code}
-							value={currency.code}
-						>{currency.code}
-						</option>
+						<MenuItem key={'base' + currency.code} value={currency.code}>
+							<CurrencyMenuItem currency={currency} />
+						</MenuItem>
 					))
 				}
-			</NativeSelect>
-			<NativeSelect
+			</Select>
+			<IconButton onClick={swapCurrencies} className="swapCurrencies">
+				<SwapHorizIcon />
+			</IconButton>
+			<Select
 				value={destinationCurrency}
 				onChange={setDestinationCurrency}
+				renderValue={value => `${value}`}
 			>
 				{
 					destinationCurrencies.map((currency) => (
-						<option
-							key={'destination-' + currency.code}
-							value={currency.code}
-						>{currency.code}
-						</option>
+						<MenuItem key={'destination' + currency.code} value={currency.code}>
+							<CurrencyMenuItem currency={currency} />
+						</MenuItem>
 					))
 				}
-			</NativeSelect>
+			</Select>
 			<Button
 				color="primary"
 				variant="contained"
@@ -69,6 +77,13 @@ const CurrencyConverter = ({
 				</ConversionResultPaper>
 		}
 	</div>
+);
+
+const CurrencyMenuItem = ({ currency }) => (
+	<CurrencyMenuItemWrapper>
+		<div className={'currency-flag currency-flag-' + currency.code.toLowerCase()}></div>
+		<div>{currency.code} - {currency.name}</div>
+	</CurrencyMenuItemWrapper>
 );
 
 CurrencyConverter.propTypes = {
@@ -89,7 +104,8 @@ CurrencyConverter.propTypes = {
 	conversionResult: PropTypes.string,
 	setAmount: PropTypes.func,
 	setBaseCurrency: PropTypes.func,
-	setDestinationCurrency: PropTypes.func
+	setDestinationCurrency: PropTypes.func,
+	swapCurrencies: PropTypes.func
 };
 
 export default CurrencyConverter;

@@ -16,3 +16,7 @@ export const setDestinationCurrency = currency => ({
 export const checkEmptyAmount = () => ({
 	type: '@@ui/CHECK_VALID_AMOUNT'
 });
+
+export const swapCurrencies = () => ({
+	type: '@@ui/SWAP_CURRENCIES'
+});
